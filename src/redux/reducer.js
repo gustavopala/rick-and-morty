@@ -28,11 +28,13 @@ const reducer = (state = initialState, action) => {
                 myFavorites: state.myFavorites.filter(fav => fav.id !== action.payload),
                 allCharacters: state.allCharacters.filter(char => char.id !== action.payload)
             }
-            case FILTER:
-            const filteredCharacters = allCharacters.filter(char => char.gender === action.payload)
+        case FILTER:
+            const filteredFavorites = state.allCharacters.filter(fav => fav.gender === action.payload);
+            
             return {
                 ...state,
-                myFavorites: state.myFavorites.filter(fav => filteredCharacters.some(char => char.id === fav.id))
+                myFavorites: filteredFavorites,
+                allCharacters: [...allCharacters]
             }
         case ORDER:
             const sortedFavorites = [...state.myFavorites].sort((a, b) => {

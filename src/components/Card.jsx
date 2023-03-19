@@ -9,15 +9,16 @@ height: 340px;
 position: relative;
 background-color: white;
 aling-items: center;
-width: 26.6%;
-margin-left: 3%;
+width: 300px;
+margin-left: px;
 border-radius: 10px;
 border-top: 1px dotted white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 border: 1px dotted white;
 box-shadow: 0px 0px 10px #ccc;
-
+margin-left: 5%;
+    margin-top: 5%;
 `;
 
 const Button = styled.button`

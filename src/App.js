@@ -44,7 +44,7 @@ function App() {
     !access && navigate('/');
  }, [access]);
   return (
-    <div className='App' style={{ padding: '25px' }}>
+    <div className='App' >
       {location.pathname === '/' ? <Form login={login}/>: <Nav onSearch={onSearch} />}
       <Routes>
         <Route path='/about' element={<About />} />
@@ -56,7 +56,7 @@ function App() {
         />
         <Route path="/detail/:detailId" element={<Detail />} />
       </Routes>
-      <hr />
+      
     </div>
   )
 }

@@ -5,8 +5,10 @@ import styled from "styled-components";
 
 const Container = styled.div`
 display: flex;
-border: 2px solid green;
-padding: 10px;
+background-image: url('/img-fav.png');
+background-size: cover;
+background-position: center;
+margin-top:3%;
 flex-wrap: wrap;
 flex-direction: row;
 `;
@@ -15,8 +17,10 @@ height: 340px;
 position: relative;
 background-color: white;
 aling-items: center;
-width: 26.6%;
+width: 300px;
 margin-left: 3%;
+margin-top: 2%;
+margin-bottom: 2%;
 border-radius: 10px;
 border-top: 1px dotted white;
   border-bottom-left-radius: 10px;
@@ -55,6 +59,38 @@ position: absolute;
 left: 0px;
 top: 0px;
 `
+const Submenu = styled.div`
+height: 30px;
+
+position: relative;
+
+`;
+const Button = styled.button`
+position: absolute;
+top: 20%;
+right: 55%;
+height: 50px;
+background-color: rgb(8, 8, 8);
+border-radius: 10px;
+border: none;
+  outline: none; 
+`;
+const Button1 = styled.button`
+position: absolute;
+top: 20%;
+right: 45%;
+height: 50px;
+background-color: rgb(8, 8, 8);
+border-radius: 10px;
+border: none;
+  outline: none; 
+`;
+const Select = styled.select`
+background-color: rgb(8, 8, 8);
+border: none;
+outline: none;
+color: white;
+`;
 
 function Favorites({ myFavorites }) {
     const dispatch=useDispatch();
@@ -67,18 +103,18 @@ function Favorites({ myFavorites }) {
 
     return (
         <div>
-            <div>
-                <select name="ordenamiento" id="" onChange={handleChange}>
+            <Submenu>
+               <Button> <Select name="ordenamiento" id="" onChange={handleChange}>
                     <option value="Ascendente">Ascendente</option>
                     <option value="Descendente">Descendente</option>
-                </select>
-                <select name="filtrado" id="" onChange={handleChan}>
+                </Select></Button>
+                <Button1><Select name="filtrado" id="" onChange={handleChan}>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Genderless">Genderless</option>
                     <option value="Unknown">Unknown</option>
-                </select>
-            </div>
+                </Select></Button1>
+            </Submenu>
             <Container>
 
             {myFavorites?.map((fav) => {
@@ -105,7 +141,7 @@ function Favorites({ myFavorites }) {
 }
 const mapStateToProps = (state) => {
     return {
-        myFavorites: [...state.myFavorites]
+        myFavorites: [...state?.myFavorites]
     }
 }
 
